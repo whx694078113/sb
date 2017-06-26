@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>业务办理</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="196x196" href="">
+    <link rel="apple-touch-startup-image" media="(device-height:568px)" href="">
+    <link rel="apple-touch-startup-image" media="(device-height:480px)" href="">
+
+    <script type="text/javascript">
+        (function() {
+            var isIPhone = window.navigator.appVersion.match(/iphone/gi);
+            var scale = 1.0;
+            var ratio = 1;
+            if (isIPhone && window.devicePixelRatio >= 2) {
+                scale *= 0.5;
+                ratio *= 2;
+            }
+            var text = '<meta name="viewport" content="initial-scale=' + scale + ', maximum-scale=' + scale +', minimum-scale=' + scale + ', width=device-width, user-scalable=no" />';
+            document.write(text);
+            document.documentElement.style.fontSize = 50 * ratio + "px";
+        })();
+    </script>
+    <link rel='stylesheet' href='/stylesheets/global.css' />
+  </head>
+  <body>     
+    <div class="mod-banner swiper-container">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+                <img src="/images/guide_banner_1.jpg" width="100%"/>
+            </li>
+        </ul>
+    </div>
+
+    <ul class="mod-list-3">
+        <li class="mod-list-guide-3" data-url="/Home/Policy/content_list?type=A02030101">企业离退休人员办理指南</li>
+        <!--<li class="mod-list-guide-3" data-url="/Home/Policy/content_list?type=A02030102">企业供养亲属业务办理指南</li>-->
+        <li class="mod-list-guide-4" data-url="/Home/Policy/content_list?type=A02030103">社会化发放办理指南</li>
+        <!--<li class="mod-list-guide-3" data-url="/Home/Policy/content_list?type=A02030104">稽核业务办理指南</li>-->
+        <!--<li class="mod-list-guide-3" data-url="/Home/Policy/content_list?type=A02030105">机关事业业务办理指南</li>-->
+        <!--<li class="mod-list-guide-3" data-url="/Home/Policy/content_list?type=A02030106">城乡居民业务办理指南</li>-->
+        <li class="mod-list-guide-1" data-url="/Home/Policy/content_list?type=A02030107">单位（企业）办事指南</li>
+        <li class="mod-list-guide-2" data-url="/Home/Policy/content_list?type=A02030108">企业在职职工办理指南</li>
+    </ul>
+
+    <p class="feedback-mobile">全省技术支持电话：96633</p>
+
+
+  </body>
+</html>

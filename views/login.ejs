@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>社保动态</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="196x196" href="">
+    <link rel="apple-touch-startup-image" media="(device-height:568px)" href="">
+    <link rel="apple-touch-startup-image" media="(device-height:480px)" href="">
+
+    <script type="text/javascript">
+        (function() {
+            var isIPhone = window.navigator.appVersion.match(/iphone/gi);
+            var scale = 1.0;
+            var ratio = 1;
+            if (isIPhone && window.devicePixelRatio >= 2) {
+                scale *= 0.5;
+                ratio *= 2;
+            }
+            var text = '<meta name="viewport" content="initial-scale=' + scale + ', maximum-scale=' + scale +', minimum-scale=' + scale + ', width=device-width, user-scalable=no" />';
+            document.write(text);
+            document.documentElement.style.fontSize = 50 * ratio + "px";
+        })();
+    </script>
+    <link rel='stylesheet' href='/stylesheets/global.css' />
+  </head>
+  <body>     
+    <section class="main-content-login">
+            <form method="POST" id="form" action="/qmcj/login/login">
+                <ul class="mod-form-list">
+                    <li class="mod-form-item mod-form-input-wrapper">
+                        <input type="text" name="loginname" id="loginname" value="" class="mod-form-input" placeholder="请输入用户名" />
+                    </li>
+                    <li class="mod-form-item mod-form-input-wrapper">
+                        <input type="password" name="passwd" id="passwd" value="" class="mod-form-input" placeholder="请输入密码"/>
+                    </li>
+                    <li id="formValidateMsg" class="mod-form-item-errorMsg m-t-4"></li>
+                    <li class="mod-form-item">
+                        <input type="submit" value="提交" class="mod-form-submit btn1"/>
+                    </li>
+                </ul>
+            </form>
+
+
+        </section>
+    <script type="text/javascript" src="/javascripts/validator.js"></script>
+    <script type="text/javascript" src="/javascripts/zepto.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                var validateForm = {
+                    _validateInit : function(){
+                        var me = this,
+                            validateRules = {
+                                'loginname': {
+                                    rules: ['required'],
+                                    desc: '用户名'
+                                },
+                                'passwd': {
+                                    rules: ['required'],
+                                    desc: '密码'
+                                }
+                            };
+                        this.validator = new Validator({
+                            successCallback : me.validateSuccess,
+                            errorCallback : me.validateError
+                        });
+                        this.validator.init(validateRules);
+                        this.validator.addRule();
+                    },
+                    validateSuccess : function(info,opt){
+
+                    },
+                    validateError : function(info,opt){
+                        var me = this,
+                            ele = $("#formValidateMsg");
+                        if(ele.size() > 0){
+                            ele.show().html(info.msg)
+                        }
+                        opt && opt.callback && callback();
+                    }
+                };
+
+                var confirmTip;
+
+                validateForm._validateInit();
+
+                // $(".mod-form-input").on('focus', function(){
+                //     $("#formValidateMsg").hide();
+                // })
+
+                $("#form").on('submit', function(evt){
+                    validateForm.validator.validateAll({
+                        success : function(){
+                            
+                        },
+                        error : function(result){
+                              evt.preventDefault();              
+                        }
+                    }, true);
+                })
+
+            })
+        </script>
+
+
+  </body>
+</html>

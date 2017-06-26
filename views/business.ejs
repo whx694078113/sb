@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no" />
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="">
+    <link rel="apple-touch-icon-precomposed" sizes="196x196" href="">
+    <link rel="apple-touch-startup-image" media="(device-height:568px)" href="">
+    <link rel="apple-touch-startup-image" media="(device-height:480px)" href="">
+
+    <script type="text/javascript">
+        (function() {
+            var isIPhone = window.navigator.appVersion.match(/iphone/gi);
+            var scale = 1.0;
+            var ratio = 1;
+            if (isIPhone && window.devicePixelRatio >= 2) {
+                scale *= 0.5;
+                ratio *= 2;
+            }
+            var text = '<meta name="viewport" content="initial-scale=' + scale + ', maximum-scale=' + scale +', minimum-scale=' + scale + ', width=device-width, user-scalable=no" />';
+            document.write(text);
+            document.documentElement.style.fontSize = 50 * ratio + "px";
+        })();
+    </script>
+
+    <link rel='stylesheet' href='/stylesheets/global.css' />
+  </head>
+  <body>     
+
+     <div class="mod-banner swiper-container">
+        <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+                <a href="javascript:void(0);"><img src="/images/business.png" width="100%"/></a>
+            </li>    
+        </ul>            
+    </div>
+
+    <form class="business-mod-top" action="{{$url}}/showBuilding">
+        <ul class="business-mod">
+            <li class="business-mod-1"><label for=""><input name="business-mod-radio" type="radio" value="" checked="checked">开通3元短信包</label></li>
+            <li class="business-mod-2" ><input name="business-mod-radio" type="radio" value="">开通6元短信流量包</li>
+            <li class="business-mod-4"><input type="submit" class="btn1" value="确定开通"></li>
+        </ul>        
+    </form> 
+
+    <div class="business-mod-5"><p>3元短信包套餐为：</p>
+        <p class="business-mod-p">1.短信办事流程提醒&nbsp;2.短信通知公告&nbsp;3.短信账户变更提醒</p>
+        <p>6元短信流量包套餐为：</p>
+        <p class="business-mod-p">1.短信办事流程提醒&nbsp;2.短信通知公告&nbsp;3.养老金领取资格流量&nbsp;4.情亲关怀(语音/短信)</p>
+    </div>
+
+    <p class="feedback-mobile">全省技术支持电话：96633</p>
+    
+  </body>
+</html>
+
